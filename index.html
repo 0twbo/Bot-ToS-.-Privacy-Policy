@@ -10,12 +10,14 @@
     margin: 0;
     font-family: Arial, sans-serif;
     color: #e6e6e6;
-    overflow: hidden;
+    overflow-x: hidden;
 
-    /* 🌈 animated gradient */
     background: linear-gradient(-45deg, #0b0d12, #1b2a4a, #0f1115, #142a3f);
     background-size: 400% 400%;
     animation: bgMove 12s ease infinite;
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
   }
 
   @keyframes bgMove {
@@ -26,12 +28,12 @@
 
   /* 💫 glow */
   .glow {
-    position: absolute;
+    position: fixed;
     width: 700px;
     height: 700px;
     background: #4ea1ff;
     filter: blur(180px);
-    opacity: 0.2;
+    opacity: 0.18;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -40,8 +42,8 @@
   }
 
   @keyframes pulse {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.15; }
-    50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.28; }
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.15); }
   }
 
   /* ✨ particles */
@@ -57,20 +59,30 @@
     to { transform: translateY(-10vh); }
   }
 
-  /* 🧱 main card */
-  .card {
+  /* 🧱 card system */
+  .container {
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+  }
+
+  .card {
     background: rgba(26, 29, 36, 0.92);
     padding: 40px;
     border-radius: 16px;
     max-width: 750px;
-    margin: auto;
-    top: 50%;
-    transform: translateY(25%);
+    width: 100%;
     text-align: center;
     box-shadow: 0 0 25px rgba(0,0,0,0.4);
     backdrop-filter: blur(6px);
+    transition: transform 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
   }
 
   h1 { color: #4ea1ff; }
@@ -111,9 +123,9 @@
     background: #3a4150;
   }
 
-  .links {
-    margin-top: 18px;
-    font-size: 13px;
+  .small {
+    font-size: 14px;
+    color: #aaa;
   }
 
   .links a {
@@ -130,60 +142,72 @@
 
 <body>
 
-<!-- 💫 glow layer -->
 <div class="glow"></div>
 
-<!-- ✨ particles -->
 <script>
   const count = 80;
 
   for (let i = 0; i < count; i++) {
     let p = document.createElement("div");
 
-    let size = Math.random() * 8 + 2;
+    let size = Math.random() * 7 + 2;
 
     p.className = "particle";
-
     p.style.width = size + "px";
     p.style.height = size + "px";
-
     p.style.left = Math.random() * 100 + "vw";
-
-    /* 🚀 random speed */
     p.style.animationDuration = (3 + Math.random() * 10) + "s";
-
-    /* 💡 YOUR IDEA: random transparency */
     p.style.opacity = Math.random() * 0.6 + 0.1;
 
     document.body.appendChild(p);
   }
 </script>
 
-<!-- 🧱 content -->
-<div class="card">
-  <h1>Project Forsaken Bot</h1>
-  <p>
-    A Discord bot for YouTube notifications, commands.
-  </p>
+<div class="container">
 
-  <div class="buttons">
+  <!-- 🟦 MAIN CARD -->
+  <div class="card">
+    <h1>Project Forsaken Bot</h1>
+    <p>
+      A Discord bot for YouTube notifications, commands.
+    </p>
 
-    <a class="button"
-      href="https://discord.com/oauth2/authorize?client_id=1494266712755798127&permissions=8&scope=bot%20applications.commands"
-      target="_blank">
-      ➕ Invite Bot
-    </a>
+    <div class="buttons">
 
-    <a class="button secondary" href="https://github.com/0twbo" target="_blank">
-      💻 GitHub
-    </a>
+      <a class="button"
+        href="https://discord.com/oauth2/authorize?client_id=1494266712755798127&permissions=8&scope=bot%20applications.commands"
+        target="_blank">
+        ➕ Invite Bot
+      </a>
 
+      <a class="button secondary" href="https://github.com/0twbo" target="_blank">
+        💻 GitHub
+      </a>
+
+    </div>
   </div>
 
-  <div class="links">
-    <a href="tos.html">Terms of Service</a> |
-    <a href="privacy.html">Privacy Policy</a>
+  <!-- 📄 TOS CARD -->
+  <div class="card">
+    <h1>📜 Terms of Service</h1>
+    <p class="small">
+      This bot is provided as-is. Do not abuse or exploit its features.
+      The developer is not responsible for misuse of the bot.
+    </p>
+
+    <a class="button secondary" href="tos.html">Open Full ToS</a>
   </div>
+
+  <!-- 🔐 PRIVACY CARD -->
+  <div class="card">
+    <h1>🔐 Privacy Policy</h1>
+    <p class="small">
+      This bot does not collect personal data. It only processes messages required for functionality.
+    </p>
+
+    <a class="button secondary" href="privacy.html">Open Full Privacy Policy</a>
+  </div>
+
 </div>
 
 </body>
