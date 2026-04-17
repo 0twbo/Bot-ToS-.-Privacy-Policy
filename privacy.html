@@ -10,30 +10,65 @@
     margin: 0;
     font-family: Arial, sans-serif;
     color: #e6e6e6;
+    overflow: hidden;
 
-    /* 🌈 same gradient as main */
-    background: radial-gradient(circle at top, #1b2a4a 0%, #0f1115 55%, #0b0d12 100%);
+    /* 🌈 animated gradient */
+    background: linear-gradient(-45deg, #0f1115, #1b2a4a, #0b0d12, #16213a);
+    background-size: 400% 400%;
+    animation: bg 12s ease infinite;
 
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
+  }
+
+  @keyframes bg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* ✨ particles */
+  .particle {
+    position: absolute;
+    background: #4ea1ff;
+    border-radius: 50%;
+    opacity: 0.25;
+    animation: float linear infinite;
+  }
+
+  @keyframes float {
+    from { transform: translateY(110vh); }
+    to { transform: translateY(-10vh); }
+  }
+
+  /* 💫 glowing background effect */
+  .glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: #4ea1ff;
+    filter: blur(150px);
+    opacity: 0.15;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
   }
 
   .box {
+    position: relative;
+    z-index: 2;
     width: 100%;
     max-width: 700px;
     background: #1a1d24;
     padding: 35px;
     border-radius: 16px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
   }
 
-  h1 {
-    color: #4ea1ff;
-    margin-top: 0;
-  }
+  h1 { color: #4ea1ff; margin-top: 0; }
 
   p {
     color: #cfcfcf;
@@ -59,6 +94,27 @@
 </head>
 
 <body>
+
+<div class="glow"></div>
+
+<script>
+  const count = 35;
+
+  for (let i = 0; i < count; i++) {
+    let p = document.createElement("div");
+
+    let size = Math.random() * 6 + 2;
+
+    p.className = "particle";
+    p.style.width = size + "px";
+    p.style.height = size + "px";
+    p.style.left = Math.random() * 100 + "vw";
+    p.style.animationDuration = (5 + Math.random() * 10) + "s";
+    p.style.opacity = Math.random() * 0.4 + 0.1;
+
+    document.body.appendChild(p);
+  }
+</script>
 
 <div class="box">
 
