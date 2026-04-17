@@ -1,115 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>0twbo Bot</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>0twbo Bot</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f1115;
-      color: #e6e6e6;
-      overflow: hidden;
-    }
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #e6e6e6;
+    overflow: hidden;
 
-    /* ✨ floating particles */
-    .particle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: #4ea1ff;
-      border-radius: 50%;
-      opacity: 0.4;
-      animation: float 10s infinite linear;
-    }
+    /* 🌈 gradient background */
+    background: radial-gradient(circle at top, #1b2a4a 0%, #0f1115 55%, #0b0d12 100%);
+  }
 
-    @keyframes float {
-      from { transform: translateY(100vh); }
-      to { transform: translateY(-10vh); }
-    }
+  /* ✨ particles */
+  .particle {
+    position: absolute;
+    background: #4ea1ff;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: float linear infinite;
+  }
 
-    .card {
-      position: relative;
-      z-index: 2;
-      background: #1a1d24;
-      padding: 40px;
-      border-radius: 16px;
-      max-width: 750px;
-      margin: auto;
-      top: 50%;
-      transform: translateY(30%);
-      text-align: center;
-      box-shadow: 0 0 25px rgba(0,0,0,0.4);
-    }
+  @keyframes float {
+    from { transform: translateY(110vh); }
+    to { transform: translateY(-10vh); }
+  }
 
-    h1 {
-      color: #4ea1ff;
-    }
+  .card {
+    position: relative;
+    z-index: 2;
+    background: #1a1d24;
+    padding: 40px;
+    border-radius: 16px;
+    max-width: 750px;
+    margin: auto;
+    top: 50%;
+    transform: translateY(25%);
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+  }
 
-    p {
-      color: #cfcfcf;
-      line-height: 1.6;
-    }
+  h1 { color: #4ea1ff; }
 
-    .buttons {
-      margin-top: 25px;
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+  p {
+    color: #cfcfcf;
+    line-height: 1.6;
+  }
 
-    a.button {
-      text-decoration: none;
-      padding: 12px 18px;
-      border-radius: 10px;
-      background: #4ea1ff;
-      color: white;
-      font-weight: bold;
-      transition: all 0.25s ease;
-    }
+  .buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
-    a.button:hover {
-      transform: scale(1.08);
-      box-shadow: 0 10px 25px rgba(78,161,255,0.3);
-    }
+  a.button {
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: #4ea1ff;
+    color: white;
+    font-weight: bold;
+    transition: all 0.25s ease;
+  }
 
-    .secondary {
-      background: #2a2f3a;
-    }
+  a.button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(78,161,255,0.3);
+  }
 
-    .secondary:hover {
-      background: #3a4150;
-    }
+  .secondary {
+    background: #2a2f3a;
+  }
 
-    .links {
-      margin-top: 18px;
-      font-size: 13px;
-    }
+  .secondary:hover {
+    background: #3a4150;
+  }
 
-    .links a {
-      color: #888;
-      text-decoration: none;
-      margin: 0 8px;
-    }
+  .links {
+    margin-top: 18px;
+    font-size: 13px;
+  }
 
-    .links a:hover {
-      color: #4ea1ff;
-    }
-  </style>
+  .links a {
+    color: #888;
+    text-decoration: none;
+    margin: 0 8px;
+  }
+
+  .links a:hover {
+    color: #4ea1ff;
+  }
+</style>
 </head>
 
 <body>
 
-<!-- particles -->
 <script>
-  for (let i = 0; i < 25; i++) {
+  const count = 70;
+
+  for (let i = 0; i < count; i++) {
     let p = document.createElement("div");
+
+    let size = Math.random() * 7 + 2;
+
     p.className = "particle";
+    p.style.width = size + "px";
+    p.style.height = size + "px";
     p.style.left = Math.random() * 100 + "vw";
-    p.style.animationDuration = (5 + Math.random() * 10) + "s";
+    p.style.animationDuration = (4 + Math.random() * 10) + "s";
+    p.style.opacity = Math.random() * 0.5 + 0.1;
+
     document.body.appendChild(p);
   }
 </script>
@@ -117,7 +123,7 @@
 <div class="card">
   <h1>Project Forsaken Bot</h1>
   <p>
-    A Discord bot that handles YouTube notifications, commands.
+    A Discord bot for YouTube notifications, commands.
   </p>
 
   <div class="buttons">
