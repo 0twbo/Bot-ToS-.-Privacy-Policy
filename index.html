@@ -1,150 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>0twbo Bot</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Project Forsaken Bot</title>
 
 <style>
 body{
-margin:0;
-font-family:Arial,sans-serif;
-color:#e6e6e6;
-overflow-x:hidden;
-background:linear-gradient(-45deg,#0b0d12,#1b2a4a,#0f1115,#142a3f);
-background-size:400% 400%;
-animation:bg 12s ease infinite;
-display:flex;
-justify-content:center;
-padding:60px 20px;
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:#e6e6e6;
+  overflow-x:hidden;
+
+  background:linear-gradient(-45deg,#0b0d12,#1b2a4a,#0f1115,#142a3f);
+  background-size:400% 400%;
+  animation:bgMove 12s ease infinite;
+
+  display:flex;
+  justify-content:center;
+  padding:60px 20px;
 }
 
-@keyframes bg{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+@keyframes bgMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
 
+/* 💫 glow */
+.glow{
+  position:fixed;
+  width:700px;
+  height:700px;
+  background:#4ea1ff;
+  filter:blur(180px);
+  opacity:.18;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:0;
+  animation:pulse 7s ease-in-out infinite;
+}
+
+@keyframes pulse{
+  0%,100%{transform:translate(-50%,-50%) scale(1);}
+  50%{transform:translate(-50%,-50%) scale(1.15);}
+}
+
+/* ✨ particles */
+.particle{
+  position:absolute;
+  background:#4ea1ff;
+  border-radius:50%;
+  animation:float linear infinite;
+}
+
+@keyframes float{
+  from{transform:translateY(110vh);}
+  to{transform:translateY(-10vh);}
+}
+
+/* layout */
 .container{
-width:100%;
-max-width:920px;
-display:flex;
-flex-direction:column;
-gap:24px;
-z-index:2;
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:920px;
+  display:flex;
+  flex-direction:column;
+  gap:24px;
 }
 
+/* cards */
 .card,.mini{
-background:rgba(26,29,36,.92);
-backdrop-filter:blur(6px);
-border-radius:18px;
-box-shadow:0 0 25px rgba(0,0,0,.35);
+  background:rgba(26,29,36,.92);
+  backdrop-filter:blur(6px);
+  border-radius:18px;
+  box-shadow:0 0 25px rgba(0,0,0,.35);
 }
 
 .card{
-padding:42px;
-text-align:center;
+  padding:42px;
+  text-align:center;
 }
 
 .row{
-display:flex;
-gap:20px;
+  display:flex;
+  gap:20px;
 }
 
 .mini{
-flex:1;
-padding:28px;
-text-align:center;
+  flex:1;
+  padding:28px;
+  text-align:center;
+  transition:.2s;
+}
+
+.mini:hover{
+  transform:translateY(-5px);
 }
 
 h1{
-margin:0 0 10px;
-color:#4ea1ff;
+  margin:0 0 10px;
+  color:#4ea1ff;
 }
 
 p{
-color:#cfcfcf;
-line-height:1.6;
+  color:#cfcfcf;
+  line-height:1.6;
 }
 
+/* buttons */
 .buttons{
-margin-top:24px;
-display:flex;
-gap:14px;
-justify-content:center;
-flex-wrap:wrap;
+  margin-top:24px;
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
 .button{
-display:inline-flex;
-align-items:center;
-gap:8px;
-padding:12px 18px;
-border-radius:10px;
-background:#4ea1ff;
-color:#fff;
-text-decoration:none;
-font-weight:bold;
-transition:.2s;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 18px;
+  border-radius:10px;
+  background:#4ea1ff;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.2s;
 }
 
 .button:hover{
-transform:scale(1.06);
-box-shadow:0 10px 25px rgba(78,161,255,.28);
+  transform:scale(1.06);
+  box-shadow:0 10px 25px rgba(78,161,255,.3);
 }
 
 .secondary{
-background:#2a2f3a;
+  background:#2a2f3a;
 }
 
 .secondary:hover{
-background:#3a4150;
+  background:#3a4150;
 }
 
+/* icons */
 .icon{
-width:22px;
-height:22px;
-flex-shrink:0;
-}
-
-.small-icon{
-width:26px;
-height:26px;
-margin-bottom:10px;
-color:#4ea1ff;
+  width:22px;
+  height:22px;
 }
 
 .small-text{
-font-size:14px;
-color:#aaa;
+  font-size:14px;
+  color:#aaa;
 }
 
+/* mobile */
 @media(max-width:800px){
-.row{flex-direction:column;}
+  .row{
+    flex-direction:column;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- 💫 glow -->
+<div class="glow"></div>
+
+<!-- ✨ particles (FIXED) -->
+<script>
+const count = 90;
+
+for(let i=0;i<count;i++){
+  let p = document.createElement("div");
+
+  let size = Math.random()*7+2;
+
+  p.className="particle";
+  p.style.width=size+"px";
+  p.style.height=size+"px";
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=(3+Math.random()*10)+"s";
+
+  /* your idea: random transparency */
+  p.style.opacity=Math.random()*0.6+0.1;
+
+  document.body.appendChild(p);
+}
+</script>
+
 <div class="container">
 
+<!-- MAIN -->
 <div class="card">
+
 <h1>🤖 0twbo Bot</h1>
-<p>A Discord bot for YouTube notifications, commands, and server automation.</p>
+<p>A Discord bot for YouTube notifications, commands.</p>
 
 <div class="buttons">
 
-<a class="button" href="https://discord.com/oauth2/authorize?client_id=1494266712755798127&permissions=8&scope=bot%20applications.commands" target="_blank">
+<a class="button"
+href="https://discord.com/oauth2/authorize?client_id=1494266712755798127&permissions=8&scope=bot%20applications.commands"
+target="_blank">
 
-<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M5 12h14"/><path d="M12 5v14"/>
+</svg>
 
 Invite Bot
 </a>
 
 <a class="button secondary" href="links.html">
 
-<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" x2="16" y1="12" y2="12"/></svg>
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M9 17H7A5 5 0 0 1 7 7h2"/>
+<path d="M15 7h2a5 5 0 1 1 0 10h-2"/>
+<line x1="8" x2="16" y1="12" y2="12"/>
+</svg>
 
 Links
 </a>
@@ -152,27 +227,18 @@ Links
 </div>
 </div>
 
+<!-- TOS + PRIVACY -->
 <div class="row">
 
 <div class="mini">
-<svg class="small-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-<path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/>
-<path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/>
-</svg>
-
-<h1>ToS</h1>
-<p class="small-text">Rules, fair use, and service conditions.</p>
+<h1>📜 ToS</h1>
+<p class="small-text">Rules, fair use, and bot conditions.</p>
 <a class="button secondary" href="tos.html">Open</a>
 </div>
 
 <div class="mini">
-<svg class="small-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<rect width="18" height="11" x="3" y="11" rx="2"/>
-<path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-</svg>
-
-<h1>Privacy</h1>
-<p class="small-text">How data is handled and what is not stored.</p>
+<h1>🔐 Privacy</h1>
+<p class="small-text">No personal data is collected.</p>
 <a class="button secondary" href="privacy.html">Open</a>
 </div>
 
