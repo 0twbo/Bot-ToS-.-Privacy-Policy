@@ -15,6 +15,7 @@
     background: linear-gradient(-45deg, #0b0d12, #1b2a4a, #0f1115, #142a3f);
     background-size: 400% 400%;
     animation: bgMove 12s ease infinite;
+
     display: flex;
     justify-content: center;
     padding: 60px 20px;
@@ -59,7 +60,7 @@
     to { transform: translateY(-10vh); }
   }
 
-  /* 🧱 card system */
+  /* 🧱 layout */
   .container {
     position: relative;
     z-index: 2;
@@ -67,6 +68,7 @@
     flex-direction: column;
     gap: 25px;
     align-items: center;
+    width: 100%;
   }
 
   .card {
@@ -78,11 +80,6 @@
     text-align: center;
     box-shadow: 0 0 25px rgba(0,0,0,0.4);
     backdrop-filter: blur(6px);
-    transition: transform 0.2s ease;
-  }
-
-  .card:hover {
-    transform: translateY(-4px);
   }
 
   h1 { color: #4ea1ff; }
@@ -123,19 +120,40 @@
     background: #3a4150;
   }
 
-  .small {
-    font-size: 14px;
+  /* 🟦 2-CARD ROW */
+  .row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 900px;
+  }
+
+  .small-card {
+    flex: 1;
+    padding: 25px;
+    background: rgba(26, 29, 36, 0.92);
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    backdrop-filter: blur(6px);
+    transition: transform 0.2s ease;
+  }
+
+  .small-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .small-text {
+    font-size: 13px;
     color: #aaa;
+    line-height: 1.5;
   }
 
-  .links a {
-    color: #888;
-    text-decoration: none;
-    margin: 0 8px;
-  }
-
-  .links a:hover {
-    color: #4ea1ff;
+  /* 📱 mobile fix */
+  @media (max-width: 800px) {
+    .row {
+      flex-direction: column;
+    }
   }
 </style>
 </head>
@@ -145,7 +163,7 @@
 <div class="glow"></div>
 
 <script>
-  const count = 80;
+  const count = 90;
 
   for (let i = 0; i < count; i++) {
     let p = document.createElement("div");
@@ -165,7 +183,7 @@
 
 <div class="container">
 
-  <!-- 🟦 MAIN CARD -->
+  <!-- 🟦 MAIN -->
   <div class="card">
     <h1>Project Forsaken Bot</h1>
     <p>
@@ -173,7 +191,6 @@
     </p>
 
     <div class="buttons">
-
       <a class="button"
         href="https://discord.com/oauth2/authorize?client_id=1494266712755798127&permissions=8&scope=bot%20applications.commands"
         target="_blank">
@@ -183,29 +200,28 @@
       <a class="button secondary" href="https://github.com/0twbo" target="_blank">
         💻 GitHub
       </a>
-
     </div>
   </div>
 
-  <!-- 📄 TOS CARD -->
-  <div class="card">
-    <h1>📜 Terms of Service</h1>
-    <p class="small">
-      This bot is provided as-is. Do not abuse or exploit its features.
-      The developer is not responsible for misuse of the bot.
-    </p>
+  <!-- 🟦 ROW (TOS + PRIVACY) -->
+  <div class="row">
 
-    <a class="button secondary" href="tos.html">Open Full ToS</a>
-  </div>
+    <div class="small-card">
+      <h1>📜 ToS</h1>
+      <p class="small-text">
+        Do not abuse or exploit the bot. It is provided as-is without guarantees.
+      </p>
+      <a class="button secondary" href="tos.html">Open</a>
+    </div>
 
-  <!-- 🔐 PRIVACY CARD -->
-  <div class="card">
-    <h1>🔐 Privacy Policy</h1>
-    <p class="small">
-      This bot does not collect personal data. It only processes messages required for functionality.
-    </p>
+    <div class="small-card">
+      <h1>🔐 Privacy</h1>
+      <p class="small-text">
+        No personal data is collected. Only required message data is processed.
+      </p>
+      <a class="button secondary" href="privacy.html">Open</a>
+    </div>
 
-    <a class="button secondary" href="privacy.html">Open Full Privacy Policy</a>
   </div>
 
 </div>
