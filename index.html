@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bot Legal Pages</title>
+  <title>Project Forsaken Bot</title>
 
   <style>
     body {
@@ -17,12 +17,13 @@
       min-height: 100vh;
     }
 
-    .container {
-      max-width: 600px;
+    .card {
       background: #1a1d24;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      padding: 40px;
+      border-radius: 16px;
+      max-width: 700px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(0,0,0,0.4);
     }
 
     h1 {
@@ -31,41 +32,62 @@
     }
 
     p {
-      line-height: 1.6;
       color: #cfcfcf;
+      line-height: 1.6;
     }
 
-    .section {
-      margin-bottom: 20px;
+    .buttons {
+      margin-top: 25px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    .tag {
-      display: inline-block;
-      padding: 4px 10px;
+    a.button {
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: #4ea1ff;
+      color: white;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    a.button:hover {
+      background: #2f89ff;
+    }
+
+    .secondary {
       background: #2a2f3a;
-      border-radius: 6px;
-      font-size: 12px;
-      margin-bottom: 10px;
-      color: #9bbcff;
+    }
+
+    .secondary:hover {
+      background: #3a4150;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="card">
+    <h1>Project Forsaken Bot</h1>
+    <p>
+      A custom Discord bot that sends YouTube upload notifications,
+      responds to commands.
+    </p>
 
-    <div class="section">
-      <span class="tag">Terms of Service</span>
-      <h1>Terms of Service</h1>
-      <p>This bot is provided as-is. Do not abuse its features or attempt to break functionality.</p>
+    <div class="buttons">
+
+      <!-- CHANGE THIS LINK -->
+      <a class="button" href="https://discord.com/oauth2/authorize?client_id=1494266712755798127&permissions=8&scope=bot%20applications.commands" target="_blank">
+        ➕ Invite Bot
+      </a>
+
+      <a class="button secondary" href="https://github.com/yourrepo" target="_blank">
+        💻 GitHub
+      </a>
+
     </div>
-
-    <div class="section">
-      <span class="tag">Privacy Policy</span>
-      <h1>Privacy Policy</h1>
-      <p>This bot does not collect personal data. It only processes messages required for commands and features.</p>
-    </div>
-
   </div>
 </body>
 </html>
