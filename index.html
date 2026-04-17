@@ -21,7 +21,7 @@
       background: #1a1d24;
       padding: 40px;
       border-radius: 16px;
-      max-width: 700px;
+      max-width: 750px;
       text-align: center;
       box-shadow: 0 0 25px rgba(0,0,0,0.4);
     }
@@ -51,11 +51,16 @@
       background: #4ea1ff;
       color: white;
       font-weight: bold;
-      transition: 0.2s;
+      transition: all 0.25s ease;
+      transform: scale(1);
+      box-shadow: 0 0 0 rgba(0,0,0,0);
     }
 
+    /* ✨ Hover animation */
     a.button:hover {
       background: #2f89ff;
+      transform: scale(1.08);
+      box-shadow: 0 10px 25px rgba(78,161,255,0.25);
     }
 
     .secondary {
@@ -64,6 +69,23 @@
 
     .secondary:hover {
       background: #3a4150;
+    }
+
+    .links {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #888;
+    }
+
+    .links a {
+      color: #888;
+      text-decoration: none;
+      margin: 0 8px;
+      transition: 0.2s;
+    }
+
+    .links a:hover {
+      color: #4ea1ff;
     }
   </style>
 </head>
@@ -78,7 +100,6 @@
 
     <div class="buttons">
 
-      <!-- CHANGE THIS LINK -->
       <a class="button" href="https://discord.com/oauth2/authorize?client_id=1494266712755798127&permissions=8&scope=bot%20applications.commands" target="_blank">
         ➕ Invite Bot
       </a>
@@ -87,6 +108,11 @@
         💻 GitHub
       </a>
 
+    </div>
+
+    <div class="links">
+      <a href="tos.html">Terms of Service</a> |
+      <a href="privacy.html">Privacy Policy</a>
     </div>
   </div>
 </body>
