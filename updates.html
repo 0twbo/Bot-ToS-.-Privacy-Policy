@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Update Log - Project Forsaken Bot</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:#e6e6e6;
+  overflow-x:hidden;
+
+  background:linear-gradient(-45deg,#0b0d12,#1b2a4a,#0f1115,#142a3f);
+  background-size:400% 400%;
+  animation:bgMove 12s ease infinite;
+
+  display:flex;
+  justify-content:center;
+  padding:60px 20px;
+}
+
+@keyframes bgMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* glow */
+.glow{
+  position:fixed;
+  width:700px;
+  height:700px;
+  background:#4ea1ff;
+  filter:blur(180px);
+  opacity:.18;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:0;
+  animation:pulse 7s ease-in-out infinite;
+}
+
+@keyframes pulse{
+  0%,100%{transform:translate(-50%,-50%) scale(1);}
+  50%{transform:translate(-50%,-50%) scale(1.15);}
+}
+
+/* particles */
+.particle{
+  position:absolute;
+  background:#4ea1ff;
+  border-radius:50%;
+  animation:float linear infinite;
+}
+
+@keyframes float{
+  from{transform:translateY(110vh);}
+  to{transform:translateY(-10vh);}
+}
+
+.container{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:900px;
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+
+.card{
+  background:rgba(26,29,36,.92);
+  padding:34px;
+  border-radius:18px;
+  backdrop-filter:blur(6px);
+  box-shadow:0 0 25px rgba(0,0,0,.35);
+}
+
+.header{
+  text-align:center;
+}
+
+h1{
+  margin:0;
+  color:#4ea1ff;
+}
+
+p{
+  color:#cfcfcf;
+  line-height:1.6;
+}
+
+.icon{
+  width:34px;
+  height:34px;
+  margin-bottom:10px;
+}
+
+.version{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:8px;
+  background:#4ea1ff;
+  color:white;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+.latest{
+  box-shadow:0 0 18px rgba(78,161,255,.35);
+}
+
+ul{
+  margin:0;
+  padding-left:18px;
+  color:#cfcfcf;
+}
+
+li{
+  margin:8px 0;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 18px;
+  border-radius:10px;
+  background:#2a2f3a;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.2s;
+}
+
+.button:hover{
+  background:#3a4150;
+  transform:scale(1.05);
+}
+
+.back-wrap{
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow"></div>
+
+<script>
+const count = 90;
+
+for(let i=0;i<count;i++){
+ let p=document.createElement("div");
+ let size=Math.random()*7+2;
+
+ p.className="particle";
+ p.style.width=size+"px";
+ p.style.height=size+"px";
+ p.style.left=Math.random()*100+"vw";
+ p.style.animationDuration=(3+Math.random()*10)+"s";
+ p.style.opacity=Math.random()*0.6+0.1;
+
+ document.body.appendChild(p);
+}
+</script>
+
+<div class="container">
+
+<!-- Header -->
+<div class="card header">
+
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<rect width="8" height="4" x="8" y="2" rx="1"/>
+<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+<path d="M12 11h4"/>
+<path d="M12 16h4"/>
+<path d="M8 11h.01"/>
+<path d="M8 16h.01"/>
+</svg>
+
+<h1>Update Log</h1>
+<p>Latest improvements and changes to 0twbo Bot.</p>
+
+</div>
+
+<!-- Latest -->
+<div class="card latest">
+<div class="version">v1.3 • Latest</div>
+<ul>
+<li>Added Update Log page</li>
+<li>Added custom Update Log icon</li>
+<li>Improved site consistency</li>
+<li>Particles + glow effects synced</li>
+</ul>
+</div>
+
+<!-- Older -->
+<div class="card">
+<div class="version">v1.2</div>
+<ul>
+<li>Added Links page</li>
+<li>Added ToS + Privacy cards</li>
+<li>Button hover improvements</li>
+</ul>
+</div>
+
+<div class="card">
+<div class="version">v1.1</div>
+<ul>
+<li>Added animated background</li>
+<li>Added particles system</li>
+<li>Modernized homepage layout</li>
+</ul>
+</div>
+
+<div class="card">
+<div class="version">v1.0</div>
+<ul>
+<li>Website launched</li>
+<li>Bot public invite ready</li>
+</ul>
+</div>
+
+<!-- Back -->
+<div class="back-wrap">
+<a class="button" href="index.html">⬅ Back Home</a>
+</div>
+
+</div>
+
+</body>
+</html>
