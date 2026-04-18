@@ -50,20 +50,35 @@ body{
 /* particles */
 .particle{
   position:fixed;
-  bottom:-12px;
-  background:#4ea1ff;
+  bottom:-15px;
   border-radius:50%;
+  background:#4ea1ff;
   pointer-events:none;
   z-index:1;
-  animation:float linear infinite;
+  animation-name:floatDrift;
+  animation-timing-function:linear;
+  animation-iteration-count:infinite;
 }
 
-@keyframes float{
-  from{
-    transform:translateY(0);
+@keyframes floatDrift{
+  0%{
+    transform:translate(0,0);
   }
-  to{
-    transform:translateY(-120vh);
+
+  25%{
+    transform:translate(18px,-30vh);
+  }
+
+  50%{
+    transform:translate(-12px,-60vh);
+  }
+
+  75%{
+    transform:translate(22px,-90vh);
+  }
+
+  100%{
+    transform:translate(-8px,-120vh);
   }
 }
 
