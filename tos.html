@@ -30,18 +30,39 @@
   }
 
   /* ✨ particles */
-  .particle {
-    position: absolute;
-    background: #4ea1ff;
-    border-radius: 50%;
-    opacity: 0.25;
-    animation: float linear infinite;
+  .particle{
+  position:fixed;
+  bottom:-15px;
+  border-radius:50%;
+  background:#4ea1ff;
+  pointer-events:none;
+  z-index:1;
+  animation-name:floatDrift;
+  animation-timing-function:linear;
+  animation-iteration-count:infinite;
+}
+
+@keyframes floatDrift{
+  0%{
+    transform:translate(0,0);
   }
 
-  @keyframes float {
-    from { transform: translateY(110vh); }
-    to { transform: translateY(-10vh); }
+  25%{
+    transform:translate(18px,-30vh);
   }
+
+  50%{
+    transform:translate(-12px,-60vh);
+  }
+
+  75%{
+    transform:translate(22px,-90vh);
+  }
+
+  100%{
+    transform:translate(-8px,-120vh);
+  }
+}
 
   /* 💫 glowing background effect */
   .glow {
