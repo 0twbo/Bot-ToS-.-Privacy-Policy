@@ -205,26 +205,34 @@ p{
 <!-- ✨ particles (FIXED) -->
 <script>
 const count = 120;
+const colors = ["#4ea1ff","#8fd3ff","#ffffff","#7bc7ff"];
 
-const colors = [
-  "#4ea1ff",
-  "#8fd3ff",
-  "#ffffff",
-  "#7bc7ff"
-];
+const particles = [];
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
 
-for(let i=0;i<count;i++){
+document.addEventListener("mousemove", e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
 
-  let p = document.createElement("div");
+for(let i = 0; i < count; i++){
 
-  let size = Math.random()*7 + 2;
+  const p = document.createElement("div");
+  const size = Math.random() * 7 + 2;
+  const depth = Math.random() * 0.8 + 0.2;
 
   p.className = "particle";
 
   p.style.width = size + "px";
   p.style.height = size + "px";
 
-  p.style.left = Math.random()*100 + "vw";
+  const startX = Math.random() * window.innerWidth;
+
+  p.dataset.baseX = startX;
+  p.dataset.depth = depth;
+
+  p.style.left = startX + "px";
 
   p.style.background =
     colors[Math.floor(Math.random()*colors.length)];
@@ -233,15 +241,35 @@ for(let i=0;i<count;i++){
     (4 + Math.random()*10) + "s, " +
     (1.5 + Math.random()*3) + "s";
 
-  p.style.animationDelay =
-    (Math.random()*6) + "s";
+  p.style.animationDelay = (Math.random()*6) + "s";
 
   if(Math.random() < 0.35){
     p.style.filter = "blur(2px)";
   }
 
   document.body.appendChild(p);
+  particles.push(p);
 }
+
+function animateGalaxy(){
+
+  const centerX = window.innerWidth / 2;
+  const influence = (mouseX - centerX) / centerX;
+
+  for(const p of particles){
+
+    const baseX = parseFloat(p.dataset.baseX);
+    const depth = parseFloat(p.dataset.depth);
+
+    const shift = influence * 30 * depth;
+
+    p.style.left = (baseX + shift) + "px";
+  }
+
+  requestAnimationFrame(animateGalaxy);
+}
+
+animateGalaxy();
 </script>
 
 <div class="container">
