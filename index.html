@@ -6,6 +6,52 @@
 <title>Project Forsaken Bot</title>
 
 <style>
+  .nebula{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(140px);
+  opacity:.16;
+  z-index:0;
+  pointer-events:none;
+  animation:nebulaMove 18s ease-in-out infinite;
+}
+
+.nebula1{
+  width:420px;
+  height:420px;
+  background:#4ea1ff;
+  top:8%;
+  left:10%;
+}
+
+.nebula2{
+  width:360px;
+  height:360px;
+  background:#7bc7ff;
+  bottom:12%;
+  right:8%;
+  animation-delay:4s;
+}
+
+.nebula3{
+  width:300px;
+  height:300px;
+  background:#ffffff;
+  top:45%;
+  left:50%;
+  opacity:.08;
+  animation-delay:8s;
+}
+
+@keyframes nebulaMove{
+  0%,100%{
+    transform:translate(0,0) scale(1);
+  }
+
+  50%{
+    transform:translate(30px,-20px) scale(1.12);
+  }
+}
 body{
   margin:0;
   font-family:Arial,sans-serif;
@@ -194,11 +240,49 @@ p{
     flex-direction:column;
   }
 }
+  body.light{
+  color:#111;
+  background:linear-gradient(-45deg,#f4f7ff,#dce8ff,#eef4ff,#ffffff);
+  background-size:400% 400%;
+}
+
+body.light .card,
+body.light .mini{
+  background:rgba(255,255,255,.88);
+  color:#111;
+}
+
+body.light p,
+body.light .small-text{
+  color:#333;
+}
+
+body.light h1{
+  color:#2b67ff;
+}
+
+body.light .button{
+  background:#2b67ff;
+}
+
+body.light .secondary,
+body.light .theme-btn{
+  background:#d9e5ff;
+  color:#111;
+}
+
+body.light .secondary:hover,
+body.light .theme-btn:hover{
+  background:#c7d9ff;
+}
 </style>
 </head>
 
 <body>
-
+<div class="nebula nebula1"></div>
+<div class="nebula nebula2"></div>
+<div class="nebula nebula3"></div>
+  
 <!-- 💫 glow -->
 <div class="glow"></div>
 
@@ -318,6 +402,9 @@ Links
 
 Update Log
 </a>
+  <button class="theme-btn" onclick="toggleTheme()">
+    🌗 Theme
+  </button>
   
 </div>  
 </div>
@@ -340,6 +427,12 @@ Update Log
 </div>
 
 </div>
+<script>
+function toggleTheme(){
 
+  document.body.classList.toggle("light");
+
+}
+</script>
 </body>
 </html>
