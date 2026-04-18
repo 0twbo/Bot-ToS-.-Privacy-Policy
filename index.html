@@ -50,14 +50,14 @@ body{
 /* ✨ particles */
 .particle{
   position:fixed;
-  bottom:-15px;
+  bottom:-20px;
   border-radius:50%;
-  background:#4ea1ff;
   pointer-events:none;
   z-index:1;
-  animation-name:floatDrift;
-  animation-timing-function:linear;
-  animation-iteration-count:infinite;
+
+  animation:
+    floatDrift linear infinite,
+    twinkle ease-in-out infinite;
 }
 
 @keyframes floatDrift{
@@ -70,7 +70,7 @@ body{
   }
 
   50%{
-    transform:translate(-12px,-60vh);
+    transform:translate(-14px,-60vh);
   }
 
   75%{
@@ -78,7 +78,17 @@ body{
   }
 
   100%{
-    transform:translate(-8px,-120vh);
+    transform:translate(-10px,-125vh);
+  }
+}
+
+@keyframes twinkle{
+  0%,100%{
+    opacity:.15;
+  }
+
+  50%{
+    opacity:.9;
   }
 }
 
@@ -194,21 +204,41 @@ p{
 
 <!-- ✨ particles (FIXED) -->
 <script>
-const count = 90;
+const count = 120;
+
+const colors = [
+  "#4ea1ff",
+  "#8fd3ff",
+  "#ffffff",
+  "#7bc7ff"
+];
 
 for(let i=0;i<count;i++){
+
   let p = document.createElement("div");
 
-  let size = Math.random()*7+2;
+  let size = Math.random()*7 + 2;
 
-  p.className="particle";
-  p.style.width=size+"px";
-  p.style.height=size+"px";
-  p.style.left=Math.random()*100+"vw";
-  p.style.animationDuration=(3+Math.random()*10)+"s";
+  p.className = "particle";
 
-  /* your idea: random transparency */
-  p.style.opacity=Math.random()*0.6+0.1;
+  p.style.width = size + "px";
+  p.style.height = size + "px";
+
+  p.style.left = Math.random()*100 + "vw";
+
+  p.style.background =
+    colors[Math.floor(Math.random()*colors.length)];
+
+  p.style.animationDuration =
+    (4 + Math.random()*10) + "s, " +
+    (1.5 + Math.random()*3) + "s";
+
+  p.style.animationDelay =
+    (Math.random()*6) + "s";
+
+  if(Math.random() < 0.35){
+    p.style.filter = "blur(2px)";
+  }
 
   document.body.appendChild(p);
 }
