@@ -49,15 +49,22 @@ body{
 
 /* particles */
 .particle{
-  position:absolute;
+  position:fixed;
+  bottom:-12px;
   background:#4ea1ff;
   border-radius:50%;
+  pointer-events:none;
+  z-index:1;
   animation:float linear infinite;
 }
 
 @keyframes float{
-  from{transform:translateY(110vh);}
-  to{transform:translateY(-10vh);}
+  from{
+    transform:translateY(0);
+  }
+  to{
+    transform:translateY(-120vh);
+  }
 }
 
 .container{
