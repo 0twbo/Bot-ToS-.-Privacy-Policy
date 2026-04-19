@@ -565,9 +565,10 @@ document.addEventListener("click", playStartupSound, { once:true });
 document.addEventListener("keydown", playStartupSound, { once:true });
 /* Loader */
 window.addEventListener("load", () => {
-  setTimeout(() => {
-    document.getElementById("loader").classList.add("hide");
-  }, 900);
+ setTimeout(() => {
+  document.getElementById("loader").classList.add("hide");
+  playStartupSound();
+}, 900);
 });
 
 /* particles */
