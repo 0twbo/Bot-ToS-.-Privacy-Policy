@@ -304,6 +304,14 @@ body.light .secondary:hover,
 body.light .theme-btn:hover{
   background:#c7d9ff;
 }
+.status{
+  margin-top:15px;
+  padding:10px 14px;
+  border-radius:10px;
+  display:inline-block;
+  font-weight:bold;
+  background:#2a2f3a;
+}
 </style>
 </head>
 
@@ -392,8 +400,7 @@ animateGalaxy();
 
 <h1>Project Forsaken Bot</h1>
 <p>A Discord bot for YouTube notifications, commands.</p>
-<div class="status online">
-🟢 Bot Status: Online
+<div class="status" id="botStatus">🔄 Loading bot status...</div>
 </div>
 <div class="buttons">
 
@@ -480,6 +487,31 @@ const saved = localStorage.getItem("theme");
 if(saved === "light"){
   document.body.classList.add("light");
 }
+  </script>
+  <script>
+async function loadStatus(){
+  try{
+    const res = await fetch("http://localhost:3000/status");
+    const data = await res.json();
+
+    const el = document.getElementById("botStatus");
+
+    if(data.online){
+      el.textContent = "🟢 Bot Status: Online";
+      el.style.color = "#7dffae";
+    }else{
+      el.textContent = "🔴 Bot Status: Offline";
+      el.style.color = "#ff6b6b";
+    }
+
+  }catch(e){
+    document.getElementById("botStatus").textContent =
+      "⚠️ Status unavailable";
+  }
+}
+
+loadStatus();
+setInterval(loadStatus, 5000);
 </script>
 </body>
 </html>
