@@ -487,7 +487,6 @@ const saved = localStorage.getItem("theme");
 if(saved === "light"){
   document.body.classList.add("light");
 }
-  </script>
   <script>
 async function loadStatus(){
   try{
@@ -512,6 +511,7 @@ async function loadStatus(){
 
 loadStatus();
 setInterval(loadStatus, 5000);
+</script>
 </script>
 </body>
 </html>
