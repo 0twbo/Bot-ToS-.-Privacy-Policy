@@ -547,7 +547,22 @@ Privacy
 </div>
 
 <script>
-  
+
+/* Start Sound */
+  let playedSound = false;
+
+function playStartupSound(){
+  if(playedSound) return;
+
+  const audio = document.getElementById("startupSound");
+  audio.volume = 0.35;
+  audio.play().catch(()=>{});
+
+  playedSound = true;
+}
+
+document.addEventListener("click", playStartupSound, { once:true });
+document.addEventListener("keydown", playStartupSound, { once:true });
 /* Loader */
 window.addEventListener("load", () => {
   setTimeout(() => {
@@ -612,6 +627,8 @@ async function loadStatus(){
 loadStatus();
 setInterval(loadStatus,5000);
 </script>
-
+<audio id="startupSound" preload="auto">
+  <source src="startup.mp3" type="audio/mpeg">
+</audio>
 </body>
 </html>
