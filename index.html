@@ -482,12 +482,11 @@ function toggleTheme(){
   applyTheme(!isLight);
 }
 
-// load saved theme
 const saved = localStorage.getItem("theme");
 if(saved === "light"){
   document.body.classList.add("light");
 }
-  <script>
+
 async function loadStatus(){
   try{
     const res = await fetch("http://localhost:3000/status");
@@ -511,7 +510,6 @@ async function loadStatus(){
 
 loadStatus();
 setInterval(loadStatus, 5000);
-</script>
 </script>
 </body>
 </html>
