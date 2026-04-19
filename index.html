@@ -148,15 +148,68 @@ body{
 }
 
 .mini{
+  position:relative;
+  overflow:hidden;
+
   flex:1;
   padding:28px;
   text-align:center;
+
+  background:rgba(26,29,36,.92);
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.03);
+
+  transition:
+    transform .28s ease,
+    box-shadow .28s ease,
+    border-color .28s ease;
+
+  border:1px solid rgba(255,255,255,.05);
 }
 
 .mini:hover{
-  transform:translateY(-6px);
+  transform:translateY(-8px) scale(1.02);
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.35),
+    0 0 22px rgba(78,161,255,.18);
+
+  border-color:rgba(78,161,255,.35);
+}
+  .mini::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:60%;
+  height:100%;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.08),
+    transparent
+  );
+
+  transform:skewX(-20deg);
+  transition:0.8s;
 }
 
+.mini:hover::before{
+  left:160%;
+}
+  .mini h2 .icon{
+  transition:.25s ease;
+}
+
+.mini:hover h2 .icon{
+  transform:scale(1.08);
+  filter:drop-shadow(0 0 10px rgba(78,161,255,.35));
+}
 .row{
   display:flex;
   gap:20px;
