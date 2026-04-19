@@ -274,7 +274,20 @@ body.light .status{
   background:#dbe6ff;
   color:#111;
 }
+.icon{
+  width:20px;
+  height:20px;
+  flex-shrink:0;
+}
 
+.button,
+.theme-btn,
+h2{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
 /* mobile */
 @media(max-width:850px){
   h1{font-size:42px;}
@@ -306,19 +319,42 @@ body.light .status{
 <a class="button"
 href="https://discord.com/oauth2/authorize?client_id=1494266712755798127&permissions=8&scope=bot%20applications.commands"
 target="_blank">
-➕ Invite Bot
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M5 12h14"/>
+  <path d="M12 5v14"/>
+</svg>
+<span>Invite Bot</span>
 </a>
 
 <a class="button secondary" href="links.html">
-🔗 Links
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 17H7A5 5 0 0 1 7 7h2"/>
+  <path d="M15 7h2a5 5 0 1 1 0 10h-2"/>
+  <line x1="8" y1="12" x2="16" y2="12"/>
+</svg>
+<span>Links</span>
 </a>
 
 <a class="button secondary" href="updates.html">
-📋 Update Log
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <rect x="8" y="2" width="8" height="4" rx="1"/>
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+  <path d="M12 11h4"/>
+  <path d="M12 16h4"/>
+  <path d="M8 11h.01"/>
+  <path d="M8 16h.01"/>
+</svg>
+<span>Update Log</span>
 </a>
 
 <button class="theme-btn" onclick="toggleTheme()">
-⇄ Theme
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="m16 3 4 4-4 4"/>
+  <path d="M20 7H4"/>
+  <path d="m8 21-4-4 4-4"/>
+  <path d="M4 17h16"/>
+</svg>
+<span>Theme</span>
 </button>
 
 </div>
@@ -328,14 +364,28 @@ target="_blank">
 <div class="row">
 
 <div class="mini">
-<h2>📜 ToS</h2>
+<h2>
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M10 2v8l3-3 3 3V2"/>
+  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/>
+</svg>
+ToS
+</h2>
 <p class="small-text">Rules, fair use, and bot conditions.</p>
 <br>
 <a class="button secondary" href="tos.html">Open</a>
 </div>
 
 <div class="mini">
-<h2>🔐 Privacy</h2>
+<h2>
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M18 6V4a2 2 0 1 0-4 0v2"/>
+  <path d="M20 15v6a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/>
+  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H10"/>
+  <rect x="12" y="6" width="8" height="5" rx="1"/>
+</svg>
+Privacy
+</h2>
 <p class="small-text">No personal data is collected.</p>
 <br>
 <a class="button secondary" href="privacy.html">Open</a>
