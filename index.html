@@ -101,11 +101,24 @@ body{
 }
 
 @keyframes float{
-  from{
-    transform:translateY(0);
+  0%{
+    transform:translate(0,0) rotate(0deg);
   }
-  to{
-    transform:translateY(-120vh);
+
+  25%{
+    transform:translate(14px,-30vh) rotate(90deg);
+  }
+
+  50%{
+    transform:translate(-12px,-60vh) rotate(180deg);
+  }
+
+  75%{
+    transform:translate(18px,-90vh) rotate(260deg);
+  }
+
+  100%{
+    transform:translate(-10px,-120vh) rotate(360deg);
   }
 }
 
@@ -346,7 +359,9 @@ for(let i=0;i<110;i++){
   p.style.background=["#4ea1ff","#8fd3ff","#ffffff"][Math.floor(Math.random()*3)];
   p.style.animationDuration=(4+Math.random()*10)+"s";
   p.style.animationDelay=Math.random()*8+"s";
-
+if(Math.random() < 0.35){
+  p.style.filter = "blur(2px)";
+}
   document.body.appendChild(p);
 }
 
