@@ -628,7 +628,9 @@ async function loadStatus(){
 loadStatus();
 setInterval(loadStatus,5000);
 /* Hover */
+window.addEventListener("DOMContentLoaded", () => {
   const hoverAudio = document.getElementById("hoverSound");
+});
 
 document.querySelectorAll(".button, .theme-btn").forEach(btn => {
   btn.addEventListener("mouseenter", () => {
