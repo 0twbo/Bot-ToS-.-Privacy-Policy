@@ -440,6 +440,68 @@ h2{
     flex-direction:column;
   }
 }
+/*settings*/
+.settings-wrap{
+  position:fixed;
+  top:20px;
+  right:20px;
+  z-index:999;
+}
+
+.settings-btn{
+  width:54px;
+  height:54px;
+  border:none;
+  border-radius:16px;
+  cursor:pointer;
+  font-size:24px;
+  color:white;
+  background:rgba(26,29,36,.9);
+  box-shadow:0 0 20px rgba(78,161,255,.18);
+  transition:.25s;
+}
+
+.settings-btn:hover{
+  transform:rotate(90deg) scale(1.08);
+}
+
+.settings-menu{
+  margin-top:12px;
+  width:190px;
+  background:rgba(26,29,36,.95);
+  border-radius:18px;
+  padding:10px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+
+  opacity:0;
+  transform:translateY(-20px) scale(.8);
+  pointer-events:none;
+  transition:.28s ease;
+}
+
+.settings-menu.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  pointer-events:auto;
+}
+
+.menu-item{
+  border:none;
+  padding:12px;
+  border-radius:12px;
+  cursor:pointer;
+  color:white;
+  background:#2a2f3a;
+  font-weight:bold;
+  transition:.2s;
+}
+
+.menu-item:hover{
+  background:#4ea1ff;
+  transform:translateX(4px);
+}
 </style>
 </head>
 
@@ -458,6 +520,18 @@ h2{
 
 <div class="container">
 
+  <!-- settings -->
+  <div class="settings-wrap">
+  <button class="settings-btn" onclick="toggleSettings()">⚙️</button>
+
+  <div class="settings-menu" id="settingsMenu">
+    <button class="menu-item" onclick="toggleTheme()">🎨 Theme</button>
+    <button class="menu-item">🔊 Sounds</button>
+    <button class="menu-item">✨ Effects</button>
+    <button class="menu-item">ℹ️ About</button>
+  </div>
+</div>
+  
 <!-- main -->
 <div class="card">
 <h1>Project Forsaken Bot</h1>
@@ -497,16 +571,6 @@ target="_blank">
 </svg>
 <span>Update Log</span>
 </a>
-
-<button class="theme-btn" onclick="toggleTheme()">
-<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-  <path d="m16 3 4 4-4 4"/>
-  <path d="M20 7H4"/>
-  <path d="m8 21-4-4 4-4"/>
-  <path d="M4 17h16"/>
-</svg>
-<span>Theme</span>
-</button>
 
 </div>
 </div>
@@ -639,6 +703,11 @@ document.querySelectorAll(".button, .theme-btn").forEach(btn => {
     hoverAudio.play().catch(()=>{});
   });
 });
+/*Settings*/
+function toggleSettings(){
+  document.getElementById("settingsMenu").classList.toggle("show");
+}
+  
 </script>
 <audio id="startupSound" preload="auto">
   <source src="startup.mp3" type="audio/mpeg">
