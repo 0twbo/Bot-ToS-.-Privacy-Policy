@@ -445,64 +445,99 @@ h2{
   position:fixed;
   top:20px;
   right:20px;
-  z-index:999;
+  z-index:1001;
 }
 
 .settings-btn{
-  width:54px;
-  height:54px;
+  width:58px;
+  height:58px;
   border:none;
   border-radius:16px;
   cursor:pointer;
   font-size:24px;
   color:white;
   background:rgba(26,29,36,.9);
-  box-shadow:0 0 20px rgba(78,161,255,.18);
-  transition:.25s;
+  box-shadow:0 0 25px rgba(78,161,255,.18);
+  transition:.2s;
 }
 
 .settings-btn:hover{
-  transform:rotate(90deg) scale(1.08);
+  transform:scale(1.08);
 }
 
-.settings-menu{
-  margin-top:12px;
-  width:190px;
-  background:rgba(26,29,36,.95);
-  border-radius:18px;
-  padding:10px;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-
+.settings-overlay{
+  position:fixed;
+  inset:0;
+  backdrop-filter:blur(12px);
+  background:rgba(0,0,0,.35);
   opacity:0;
-  transform:translateY(-20px) scale(.8);
   pointer-events:none;
-  transition:.28s ease;
+  transition:.25s;
+  z-index:1000;
 }
 
-.settings-menu.show{
+.settings-overlay.show{
   opacity:1;
-  transform:translateY(0) scale(1);
   pointer-events:auto;
 }
 
-.menu-item{
+.settings-panel{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(.7);
+  opacity:0;
+  pointer-events:none;
+
+  width:min(92vw,520px);
+  padding:34px;
+  border-radius:24px;
+
+  background:rgba(26,29,36,.94);
+  backdrop-filter:blur(18px);
+
+  box-shadow:
+    0 30px 60px rgba(0,0,0,.4),
+    0 0 30px rgba(78,161,255,.15);
+
+  z-index:1002;
+  transition:.28s ease;
+}
+
+.settings-panel.show{
+  transform:translate(-50%,-50%) scale(1);
+  opacity:1;
+  pointer-events:auto;
+}
+
+.settings-panel h2{
+  justify-content:center;
+  margin-bottom:18px;
+}
+
+.menu-item,
+.menu-close{
+  width:100%;
   border:none;
-  padding:12px;
-  border-radius:12px;
+  padding:16px;
+  margin-top:10px;
+  border-radius:14px;
   cursor:pointer;
+  font-size:16px;
+  font-weight:bold;
   color:white;
   background:#2a2f3a;
-  font-weight:bold;
   transition:.2s;
 }
 
 .menu-item:hover{
   background:#4ea1ff;
-  transform:translateX(4px);
+  transform:translateY(-2px);
 }
-</style>
+
+.menu-close:hover{
+  background:#ff5d5d;
+}</style>
 </head>
 
 <body>
@@ -522,14 +557,20 @@ h2{
 
   <!-- settings -->
   <div class="settings-wrap">
-  <button class="settings-btn" onclick="toggleSettings()">⚙️</button>
+  <button class="settings-btn" onclick="openSettings()">⚙️</button>
+</div>
 
-  <div class="settings-menu" id="settingsMenu">
-    <button class="menu-item" onclick="toggleTheme()">🎨 Theme</button>
-    <button class="menu-item">🔊 Sounds</button>
-    <button class="menu-item">✨ Effects</button>
-    <button class="menu-item">ℹ️ About</button>
-  </div>
+<div class="settings-overlay" id="settingsOverlay" onclick="closeSettings()"></div>
+
+<div class="settings-panel" id="settingsPanel">
+  <h2>Settings</h2>
+
+  <button class="menu-item" onclick="toggleTheme()">🎨 Theme</button>
+  <button class="menu-item">🔊 Sounds</button>
+  <button class="menu-item">✨ Effects</button>
+  <button class="menu-item">ℹ️ About</button>
+
+  <button class="menu-close" onclick="closeSettings()">Close</button>
 </div>
   
 <!-- main -->
@@ -696,7 +737,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const hoverAudio = document.getElementById("hoverSound");
 });
 
-document.querySelectorAll(".button, .theme-btn").forEach(btn => {
+document.querySelectorAll(".button, .settings-btn, .menu-item").forEach(btn => {
   btn.addEventListener("mouseenter", () => {
     hoverAudio.currentTime = 0;
     hoverAudio.volume = 0.18;
@@ -704,8 +745,14 @@ document.querySelectorAll(".button, .theme-btn").forEach(btn => {
   });
 });
 /*Settings*/
-function toggleSettings(){
-  document.getElementById("settingsMenu").classList.toggle("show");
+function openSettings(){
+  settingsOverlay.classList.add("show");
+  settingsPanel.classList.add("show");
+}
+
+function closeSettings(){
+  settingsOverlay.classList.remove("show");
+  settingsPanel.classList.remove("show");
 }
   
 </script>
