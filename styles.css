@@ -573,3 +573,60 @@ h3 { margin-bottom: 8px; font-size: 17px; }
 .back-row .button .svg-icon { width: 17px; height: 17px; }
 
 .brand-mark-text { font-size: 15px; font-weight: 800; letter-spacing: -.7px; line-height: 1; color: #fff; }
+
+
+/* Compact, accessible accordion collections for the theme picker. */
+.theme-group > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.theme-group > summary::-webkit-details-marker { display: none; }
+.theme-group > summary::after {
+  content: "+";
+  display: grid;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--accent-light);
+  font-size: 15px;
+  line-height: 1;
+  letter-spacing: 0;
+  transition: transform .18s ease, background .18s ease;
+}
+.theme-group[open] > summary { margin-bottom: 10px; }
+.theme-group[open] > summary::after { content: "−"; background: rgba(var(--accent-rgb), .1); }
+.theme-group > summary:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 5px; border-radius: 4px; }
+.theme-group[open] > .theme-swatches,
+.theme-group[open] > .custom-theme-picker,
+.theme-group[open] > .custom-gradient-control { animation: theme-collection-open .18s ease both; }
+@keyframes theme-collection-open { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+.language-setting-row { align-items: center; }
+.language-select {
+  min-width: 138px;
+  max-width: 48%;
+  padding: 9px 30px 9px 11px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  background: var(--panel);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+.language-select:focus-visible { outline: 3px solid var(--accent-light); outline-offset: 3px; }
