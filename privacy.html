@@ -1,153 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Page</title>
-
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #e6e6e6;
-    overflow: hidden;
-
-    /* 🌈 animated gradient */
-    background: linear-gradient(-45deg, #0f1115, #1b2a4a, #0b0d12, #16213a);
-    background-size: 400% 400%;
-    animation: bg 12s ease infinite;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-
-  @keyframes bg {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  /* ✨ particles */
- .particle{
-  position:fixed;
-  bottom:-15px;
-  border-radius:50%;
-  background:#4ea1ff;
-  pointer-events:none;
-  z-index:1;
-  animation-name:floatDrift;
-  animation-timing-function:linear;
-  animation-iteration-count:infinite;
-}
-
-@keyframes floatDrift{
-  0%{
-    transform:translate(0,0);
-  }
-
-  25%{
-    transform:translate(18px,-30vh);
-  }
-
-  50%{
-    transform:translate(-12px,-60vh);
-  }
-
-  75%{
-    transform:translate(22px,-90vh);
-  }
-
-  100%{
-    transform:translate(-8px,-120vh);
-  }
-}
-
-  /* 💫 glowing background effect */
-  .glow {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: #4ea1ff;
-    filter: blur(150px);
-    opacity: 0.15;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-  }
-
-  .box {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 700px;
-    background: #1a1d24;
-    padding: 35px;
-    border-radius: 16px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
-  }
-
-  h1 { color: #4ea1ff; margin-top: 0; }
-
-  p {
-    color: #cfcfcf;
-    line-height: 1.6;
-  }
-
-  a.button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 15px;
-    background: #2a2f3a;
-    color: #fff;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: 0.2s;
-  }
-
-  a.button:hover {
-    background: #3a4150;
-    transform: scale(1.05);
-  }
-</style>
-</head>
-
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080d18"><meta name="description" content="Privacy information for Project Forsaken Bot."><title>Privacy Policy · Project Forsaken</title><link rel="stylesheet" href="styles.css"></head>
 <body>
+  <div class="ambient" aria-hidden="true"></div><div id="particles" aria-hidden="true"></div>
+  <div class="site-shell">
+    <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><span class="brand-mark-text">PF</span></span><span>Project Forsaken</span></a><nav class="nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="links.html">Links</a><a href="updates.html">Updates</a><a href="tos.html">Terms</a><a href="privacy.html" aria-current="page">Privacy</a><button class="icon-button" id="settingsButton" type="button" aria-label="Open settings" aria-haspopup="dialog" aria-expanded="false"><svg class="svg-icon is-filled" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" stroke="none" d="M12 8a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 2a2 2 0 0 0-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2m-2 12c-.25 0-.46-.18-.5-.42l-.37-2.65c-.63-.25-1.17-.59-1.69-.99l-2.49 1.01c-.22.08-.49 0-.61-.22l-2-3.46a.493.493 0 0 1 .12-.64l2.11-1.66L4.5 12l.07-1l-2.11-1.63a.493.493 0 0 1-.12-.64l2-3.46c.12-.22.39-.31.61-.22l2.49 1c.52-.39 1.06-.73 1.69-.98l.37-2.65c.04-.24.25-.42.5-.42h4c.25 0 .46.18.5.42l.37 2.65c.63.25 1.17.59 1.69.98l2.49-1c.22-.09.49 0 .61.22l2 3.46c.13.22.07.49-.12.64L19.43 11l.07 1l-.07 1l2.11 1.63c.19.15.25.42.12.64l-2 3.46c-.12.22-.39.31-.61.22l-2.49-1c-.52.39-1.06.73-1.69.98l-.37 2.65c-.04.24-.25.42-.5.42z"/></svg></button></nav></header>
+    <main>
+      <section class="panel hero"><div class="hero-content"><span class="eyebrow">Your information</span><h1>Privacy <span class="gradient-text">Policy</span></h1><p class="lead">An overview of privacy considerations when using Project Forsaken Bot.</p></div></section>
+      <section class="section content-card"><h2>Information handled by the bot</h2><p>When you interact with a Discord bot, Discord provides information needed to handle the interaction. Depending on the bot’s enabled features, this can include Discord user, server, and channel identifiers, command input, and server configuration. YouTube notification features may also use public channel and video information.</p></section>
+      <section class="content-card"><h2>How information is used</h2><p>Information should be used only to provide, maintain, and troubleshoot the bot’s features. The exact information stored, how long it is kept, and whether it is shared with any other service depend on the bot’s implementation.</p></section>
+      <section class="content-card"><h2>Data retention and requests</h2><p>This page does not currently specify storage periods or a data-deletion process. Those details should be confirmed against the bot’s actual code and hosting setup before this policy is treated as complete.</p></section>
+      <div class="callout">Transparency note: the previous version said that no personal data was collected. That statement has been removed because the website files alone do not verify what the bot stores or logs. The policy should be completed after checking the bot’s source code and database/logging setup.</div>
+      <div class="back-row"><a class="button" href="index.html"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path xmlns="http://www.w3.org/2000/svg" d="m15 18-6-6 6-6M9 12h12" /></svg> Back home</a></div>
+    </main>
+    <footer class="footer">Project Forsaken Bot · <a href="tos.html">Terms of service</a></footer>
+  </div>
+  <div class="dialog-backdrop" id="settingsBackdrop" aria-hidden="true">
+    <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+      <div class="dialog-header"><h2 id="settingsTitle">Settings</h2><button class="dialog-close" id="closeSettings" type="button" aria-label="Close settings"><svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path xmlns="http://www.w3.org/2000/svg" d="m6 6 12 12M18 6 6 18" /></svg></button></div>
+      <div class="setting-row"><div><strong>Theme</strong><small>Switch between dark and light mode</small></div><button class="setting-action" id="themeToggle" type="button">Dark on</button></div>
+      <div class="setting-row color-theme-row">
+        <div><strong>Color themes</strong><small>Browse palettes by collection, or make your own</small></div>
+        <div class="theme-groups">
+          <section class="theme-group" aria-label="Essentials">
+            <h3>Essentials</h3>
+            <div class="theme-swatches" role="group" aria-label="Essential color themes">
+              <button class="theme-swatch" type="button" data-accent-choice="blue" aria-label="Blue" title="Blue" aria-pressed="true"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="purple" aria-label="Purple" title="Purple" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="red" aria-label="Red" title="Red" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="rose" aria-label="Rose" title="Rose" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="amber" aria-label="Amber" title="Amber" aria-pressed="false"></button>
+            </div>
+          </section>
+          <section class="theme-group" aria-label="Nature">
+            <h3>Nature</h3>
+            <div class="theme-swatches" role="group" aria-label="Nature color themes">
+              <button class="theme-swatch" type="button" data-accent-choice="emerald" aria-label="Emerald" title="Emerald" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="teal" aria-label="Teal" title="Teal" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="lime" aria-label="Lime" title="Lime" aria-pressed="false"></button>
+            </div>
+          </section>
+          <section class="theme-group" aria-label="Metallics">
+            <h3>Metallics</h3>
+            <div class="theme-swatches" role="group" aria-label="Metallic color themes">
+              <button class="theme-swatch" type="button" data-accent-choice="gold" aria-label="Gold" title="Gold" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="bronze" aria-label="Bronze" title="Bronze" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="steel" aria-label="Steel" title="Steel" aria-pressed="false"></button>
+            </div>
+          </section>
+          <section class="theme-group" aria-label="Vibrant">
+            <h3>Vibrant</h3>
+            <div class="theme-swatches" role="group" aria-label="Vibrant color themes">
+              <button class="theme-swatch" type="button" data-accent-choice="cyan" aria-label="Cyan" title="Cyan" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="magenta" aria-label="Magenta" title="Magenta" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="orange" aria-label="Orange" title="Orange" aria-pressed="false"></button>
+            </div>
+          </section>
+          <section class="theme-group" aria-label="Gradients">
+            <h3>Gradients</h3>
+            <div class="theme-swatches" role="group" aria-label="Gradient color themes">
+              <button class="theme-swatch" type="button" data-accent-choice="gradient-aurora" aria-label="Aurora gradient" title="Aurora" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="gradient-sunset" aria-label="Sunset gradient" title="Sunset" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="gradient-ocean" aria-label="Ocean gradient" title="Ocean" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="gradient-fire" aria-label="Fire gradient" title="Fire" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="gradient-candy" aria-label="Candy gradient" title="Candy" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="gradient-cosmic" aria-label="Cosmic gradient" title="Cosmic" aria-pressed="false"></button>
+            </div>
+          </section>
+          <section class="theme-group" aria-label="Holidays">
+            <h3>Holidays</h3>
+            <div class="theme-swatches" role="group" aria-label="Holiday color themes">
+              <button class="theme-swatch" type="button" data-accent-choice="holiday-new-year" aria-label="New Year" title="New Year" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="holiday-christmas" aria-label="Christmas" title="Christmas" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="holiday-halloween" aria-label="Halloween" title="Halloween" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="holiday-valentines" aria-label="Valentine's Day" title="Valentine's Day" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="holiday-easter" aria-label="Easter" title="Easter" aria-pressed="false"></button>
+              <button class="theme-swatch" type="button" data-accent-choice="holiday-summer" aria-label="Summer" title="Summer" aria-pressed="false"></button>
+            </div>
+          </section>
+          <section class="theme-group custom-theme-group" aria-label="Custom colors and gradients">
+            <h3>Custom</h3>
+            <label class="custom-theme-picker" id="customAccentControl" title="Choose a custom accent color">
+              <input id="customAccentPicker" type="color" value="#328cff" aria-label="Choose a custom accent color">
+              <span>Single color</span>
+            </label>
+            <div class="custom-gradient-control" id="customGradientControl">
+              <span class="custom-gradient-label">Custom gradient</span>
+              <label class="gradient-color-picker"><span>Start</span><input id="customGradientStart" type="color" value="#328cff" aria-label="Custom gradient start color"></label>
+              <label class="gradient-color-picker"><span>End</span><input id="customGradientEnd" type="color" value="#a855f7" aria-label="Custom gradient end color"></label>
+              <span class="custom-gradient-preview" aria-hidden="true"></span>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="setting-row"><div><strong>Sounds</strong><small>Startup and button hover sounds</small></div><button class="setting-action" id="soundToggle" type="button">On</button></div>
+      <div class="setting-row"><div><strong>Visual effects</strong><small>Animated background and floating particles</small></div><button class="setting-action" id="effectsToggle" type="button">On</button></div>
+      <div class="setting-row"><div><strong>About</strong><small>Information about this website</small></div><button class="setting-action" id="aboutToggle" type="button" aria-expanded="false">Show</button></div>
+      <div class="about-note" id="aboutNote">Project Forsaken is a Discord bot project by 0twbo. This website contains the bot invite, project links, updates, terms, and privacy information.</div>
+    </section>
+  </div>
 
-<div class="glow"></div>
-
-<script>
-  const count = 35;
-
-  for (let i = 0; i < count; i++) {
-    let p = document.createElement("div");
-
-    let size = Math.random() * 6 + 2;
-
-    p.className = "particle";
-    p.style.width = size + "px";
-    p.style.height = size + "px";
-    p.style.left = Math.random() * 100 + "vw";
-    p.style.animationDuration = (5 + Math.random() * 10) + "s";
-    p.style.opacity = Math.random() * 0.4 + 0.1;
-
-    document.body.appendChild(p);
-  }
-</script>
-
-<div class="box">
-
-  <h1>Privacy Policy</h1>
-
-  <p>
-    This bot does not collect personal data. It only processes messages required for commands.
-  </p>
-
-  <a class="button" href="index.html">← Back Home</a>
-
-</div>
-
-</body>
-</html>
+  <audio id="startupSound" preload="none"><source src="startup.mp3" type="audio/mpeg"></audio>
+  <audio id="hoverSound" preload="none"><source src="hover.mp3" type="audio/mpeg"></audio>
+  <script src="script.js" defer></script>
+</body></html>
