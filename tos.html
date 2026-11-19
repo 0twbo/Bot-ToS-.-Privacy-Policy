@@ -1,153 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Page</title>
-
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #e6e6e6;
-    overflow: hidden;
-
-    /* 🌈 animated gradient */
-    background: linear-gradient(-45deg, #0f1115, #1b2a4a, #0b0d12, #16213a);
-    background-size: 400% 400%;
-    animation: bg 12s ease infinite;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-
-  @keyframes bg {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  /* ✨ particles */
-  .particle{
-  position:fixed;
-  bottom:-15px;
-  border-radius:50%;
-  background:#4ea1ff;
-  pointer-events:none;
-  z-index:1;
-  animation-name:floatDrift;
-  animation-timing-function:linear;
-  animation-iteration-count:infinite;
-}
-
-@keyframes floatDrift{
-  0%{
-    transform:translate(0,0);
-  }
-
-  25%{
-    transform:translate(18px,-30vh);
-  }
-
-  50%{
-    transform:translate(-12px,-60vh);
-  }
-
-  75%{
-    transform:translate(22px,-90vh);
-  }
-
-  100%{
-    transform:translate(-8px,-120vh);
-  }
-}
-
-  /* 💫 glowing background effect */
-  .glow {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: #4ea1ff;
-    filter: blur(150px);
-    opacity: 0.15;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-  }
-
-  .box {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 700px;
-    background: #1a1d24;
-    padding: 35px;
-    border-radius: 16px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
-  }
-
-  h1 { color: #4ea1ff; margin-top: 0; }
-
-  p {
-    color: #cfcfcf;
-    line-height: 1.6;
-  }
-
-  a.button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 15px;
-    background: #2a2f3a;
-    color: #fff;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: 0.2s;
-  }
-
-  a.button:hover {
-    background: #3a4150;
-    transform: scale(1.05);
-  }
-</style>
-</head>
-
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080d18"><meta name="description" content="Terms for using Project Forsaken Bot."><title>Terms of Service · Project Forsaken</title><link rel="stylesheet" href="styles.css"></head>
 <body>
-
-<div class="glow"></div>
-
-<script>
-  const count = 35;
-
-  for (let i = 0; i < count; i++) {
-    let p = document.createElement("div");
-
-    let size = Math.random() * 6 + 2;
-
-    p.className = "particle";
-    p.style.width = size + "px";
-    p.style.height = size + "px";
-    p.style.left = Math.random() * 100 + "vw";
-    p.style.animationDuration = (5 + Math.random() * 10) + "s";
-    p.style.opacity = Math.random() * 0.4 + 0.1;
-
-    document.body.appendChild(p);
-  }
-</script>
-
-<div class="box">
-
-  <h1>Terms of Service</h1>
-
-  <p>
-    This bot is provided as-is. Do not abuse, spam, or exploit its features. The developer is not responsible for misuse.
-  </p>
-
-  <a class="button" href="index.html">← Back Home</a>
-
-</div>
-
-</body>
-</html>
+  <div class="ambient" aria-hidden="true"></div><div id="particles" aria-hidden="true"></div>
+  <div class="site-shell">
+    <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">PF</span><span>Project Forsaken</span></a><nav class="nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="links.html">Links</a><a href="updates.html">Updates</a><a href="tos.html" aria-current="page">Terms</a><a href="privacy.html">Privacy</a></nav></header>
+    <main>
+      <section class="panel hero"><div class="hero-content"><span class="eyebrow">Project information</span><h1>Terms of <span class="gradient-text">Service</span></h1><p class="lead">Basic conditions for using Project Forsaken Bot.</p></div></section>
+      <section class="section content-card"><h2>1. Acceptable use</h2><p>Use the bot responsibly and only for its intended features. Do not abuse, spam, exploit, disrupt, or attempt to interfere with the bot or its services.</p></section>
+      <section class="content-card"><h2>2. Discord rules</h2><p>Your use of the bot must also follow Discord’s Terms of Service and Community Guidelines. Server owners and administrators are responsible for choosing where the bot is added and what permissions it receives.</p></section>
+      <section class="content-card"><h2>3. Availability and changes</h2><p>The bot is provided on an “as available” basis. Features may change, be interrupted, or be discontinued. No uninterrupted availability is promised.</p></section>
+      <section class="content-card"><h2>4. Misuse</h2><p>Access may be restricted where use of the bot harms the service, other users, or the project. The developer is not responsible for problems caused by misuse or by third-party services.</p></section>
+      <section class="content-card"><h2>5. Updates to these terms</h2><p>These terms may be updated as the bot changes. Continued use after an update means you agree to the revised terms.</p></section>
+      <div class="back-row"><a class="button" href="index.html">← Back home</a></div>
+    </main>
+    <footer class="footer">Project Forsaken Bot · <a href="privacy.html">Privacy policy</a></footer>
+  </div>
+  <script src="script.js" defer></script>
+</body></html>
